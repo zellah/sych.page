@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from enum import Enum
 from datetime import datetime
 import os
-from sqlalchemy.ext.mutable import Mutable
+import itertools
 
 app = Flask(__name__)
 if os.name == 'nt':
@@ -67,6 +67,20 @@ def set_not_okness(id):
     db.session.add(user)
     db.session.commit()
     return redirect(url_for('user', id=user.id))
+
+
+@app.route('/group/<id>')
+def get_group(id):
+    group = Group.query.get(id)
+    okness = [all(user.data.ok_with(door, mask, dist, vacc, food))
+    for door, mask, dist, vacc, food in itertools.product(Doorsness, Maskedness, Distanced, Vaccinated, Food)]
+    return str(okness)
+
+@app.route('group/<gid>/user/<uid>')
+def update_group(gid, uid):
+    # this is a dumb way to do this so don't.
+    pass
+
 
 members = db.Table('members',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
