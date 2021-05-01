@@ -10,12 +10,12 @@
 {% block content %}
 
 <div class="wrapper">
-  <div class="page-header page-header-small">
-    <div class="page-header-image" data-parallax="true" style="background-image: url('/static/assets/img/picnic.jpg');">
+  <div class="page-header clear-filter page-header-small" filter-color="orange">
+    <div class="page-header-image" data-parallax="true" style="background-image:url('/static/assets/img/header.jpg');">
     </div>
     <div class="content-center">
       <div class="container">
-        <h3 class="title">Register</h3>
+        <h5 class="title">Register</h5>
       </div>
     </div>
   </div>
@@ -28,6 +28,37 @@
           </h3>
         </div>
       </div>
+      <div class="row">
+
+        <form class="form" method="post" action="/adduser">
+
+          {{ form.hidden_tag() }}
+
+          <div class="card-header text-center">
+            <div class="logo-container">
+              <img src="/static/assets/img/now-logo.png" alt="">
+            </div>
+          </div>
+          <div class="card-body">
+
+            <p class="description text-center">                  
+            </p>
+
+            <div class="input-group no-border input-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="now-ui-icons users_circle-08"></i>
+                </span>
+              </div>
+              {{ form.username(class="form-control") }}
+            </div>
+
+
+          <div class="card-footer text-center">
+            <button type="submit" name="login" class="btn btn-primary btn-round btn-lg btn-block">Register</button>
+        </form>
+
+    </div>
     </div>
   </div>
 

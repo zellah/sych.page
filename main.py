@@ -4,6 +4,11 @@ from enum import Enum
 from datetime import datetime
 import os
 
+from flask_wtf          import FlaskForm
+from flask_wtf.file     import FileField, FileRequired
+from wtforms            import StringField, TextAreaField, SubmitField, PasswordField
+from wtforms.validators import InputRequired, Email, DataRequired
+
 app = Flask(__name__)
 if os.name == 'nt':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:\\Users\\hende\\AppData\\Roaming\\mydatabase.db'
@@ -15,9 +20,16 @@ db = SQLAlchemy(app)
 def hello():
     return render_template('pages/index.html')
 
+class RegisterForm(FlaskForm):
+	name        = StringField  (u'Name'      )
+	username    = StringField  (u'Username'  , validators=[DataRequired()])
+	password    = PasswordField(u'Password'  , validators=[DataRequired()])
+	email       = StringField  (u'Email'     , validators=[DataRequired(), Email()])
+
 @app.route("/register")
 def register():
-    return render_template('pages/register.html')
+    form = RegisterForm(csrf_enabled=False)
+    return render_template('pages/register.html', form=form)
 
 @app.route("/compare")
 def search():
