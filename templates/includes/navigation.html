@@ -31,43 +31,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="/static/assets/img/blurred-image-1.jpg">
           <ul class="navbar-nav">
 
-            {% if current_user.is_authenticated %}
-            
               <li class="nav-item">
-                <a class="nav-link" href="/profile.html">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/components.html">UI Kit</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" rel="tooltip" data-placement="bottom" 
-                  title="End Session for [{{ current_user.user }}]" 
-                  href={{ url_for('logout') }}>
-                  <i class="now-ui-icons sport_user-run"></i>
-                </a>
-              </li>
-
-            {% else %}
-
-              <li class="nav-item">
-                <a class="nav-link" rel="tooltip" data-placement="bottom" 
-                  title="Authenticate" 
-                  href={{ url_for('login') }}>
-                  <i class="now-ui-icons ui-1_lock-circle-open"></i>
-                </a>
-              </li>
-
-            {% endif %}  
-
-              <li class="nav-item">
-                <a class="nav-link" rel="tooltip" data-placement="bottom" 
-                  title="Get Support" 
+                <a class="nav-link" rel="tooltip" data-placement="bottom"
+                  title="Get Support"
                   href="https://appseed.us/support">
                   <i class="now-ui-icons ui-1_settings-gear-63"></i>
                 </a>
               </li>
-
 
           </ul>
         </div>

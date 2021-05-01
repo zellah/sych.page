@@ -3,7 +3,6 @@ Flask-SQLAlchemy==2.5.1
 flask_login
 flask_migrate
 flask_wtf
-flask_sqlalchemy
 flask_bcrypt
 gunicorn
 email_validator
