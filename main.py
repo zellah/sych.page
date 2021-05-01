@@ -17,11 +17,11 @@ def hello():
 
 @app.route("/register")
 def register():
-    return render_template('register.html')
+    return render_template('pages/register.html')
 
-@app.route("/search")
+@app.route("/compare")
 def search():
-    return render_template('search.html')
+    return render_template('pages/compare.html')
 
 @app.route('/allusers')
 def all_users():
