@@ -1,6 +1,6 @@
 {% extends "layouts/base-site.html" %}
 
-{% block title %} Landing Page {% endblock %}
+{% block title %} Home {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -12,7 +12,7 @@
   <!-- End Navbar -->
   <div class="wrapper">
     <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('/static/assets/img/bg6.jpg');">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('/static/assets/img/picnic.jpg');">
       </div>
       <div class="content-center">
         <div class="container">
@@ -29,6 +29,16 @@
               Register yourself to list everything you're comfortable doing with others. Search to compare your comfort level to your friends' and find common ground.
             </h5>
           </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="text-center">
+          <a href="/register" class="btn btn-primary btn-round">
+            Register
+          </a>
+          <a href="/compare" class="btn btn-primary btn-round">
+            Compare
+          </a>
         </div>
       </div>
     </div>
